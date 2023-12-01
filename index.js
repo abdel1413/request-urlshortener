@@ -1,6 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const m = require("mongoose");
+
 const app = express();
 
 // Basic Configuration
@@ -15,8 +17,9 @@ app.get("/", function (req, res) {
 });
 
 // Your first API endpoint
-app.get("/api/hello", function (req, res) {
-  console.log("greeding");
+app.get("/api/shorturl", function (req, res) {
+  //{ original_url : 'https://freeCodeCamp.org', short_url : 1}
+  res.json({ url: req.headers["accept-language"] });
 });
 
 app.listen(port, function () {
